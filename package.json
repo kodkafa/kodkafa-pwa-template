@@ -19,7 +19,8 @@
     "test:e2e:headless": "pnpm preview:test 'cypress run'",
     "test:ci": "vitest run",
     "test:ci:lint": "pnpm run lint",
-    "test:ci:e2e": "vite build && pnpm preview:test 'cypress run --record'"
+    "test:ci:e2e": "pnpm preview:test 'cypress run --record'",
+    "validate": "pnpm run build && pnpm run --parallel /^test:ci/"
   },
   "dependencies": {
     "@kodkafa/eslint-config": "^1.0.4",
