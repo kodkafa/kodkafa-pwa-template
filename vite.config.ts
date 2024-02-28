@@ -149,5 +149,9 @@ export default ({ mode }) => {
       port: parseInt(process.env.VITE_PORT),
       host: true,
     },
+    preview: {
+      host: '0.0.0.0',
+      port: 4174,
+    },
   });
 };

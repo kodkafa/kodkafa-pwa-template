@@ -1,4 +1,16 @@
 describe('Screen Shots', () => {
+  beforeEach(async () => {
+    // From https://github.com/cypress-io/cypress/issues/702#issuecomment-435873135
+    if (!window.navigator || !navigator.serviceWorker) {
+      return null;
+    }
+    const registrations = await navigator.serviceWorker.getRegistrations();
+    return Promise.all(
+      registrations.map((registration) => {
+        return registration.unregister();
+      }),
+    );
+  });
   it('Accept cookies and taking screenshot "/" while viewport macbook-13', () => {
     cy.viewport('macbook-13');
     cy.then(() => {
@@ -27,7 +39,6 @@ describe('Screen Shots', () => {
   it('Accept cookies and taking screenshot "/" while viewport iphone-x', () => {
     cy.viewport('iphone-x');
     cy.visit('/');
-    cy.wait(500);
     cy.get('#cookie-accept').click();
     cy.screenshot('screenshot-narrow', {
       capture: 'viewport',
