@@ -15,10 +15,11 @@
     "pwa:ss": "pnpm preview:test 'cypress run -C cypress-ss.config.ts -s cypress/e2e/screenshot.cy.ts' && mv cypress/screenshots/screenshot*/*.png public/",
     "preview:test": "start-server-and-test preview http://localhost:4173",
     "test": "vitest",
-    "test:ci": "vitest run",
     "test:e2e": "pnpm preview:test 'cypress open'",
     "test:e2e:headless": "pnpm preview:test 'cypress run'",
-    "test:e2e:ci": "vite build && pnpm preview:test 'cypress run --record'"
+    "test:ci": "vitest run",
+    "test:ci:lint": "pnpm run lint",
+    "test:ci:e2e": "vite build && pnpm preview:test 'cypress run --record'"
   },
   "dependencies": {
     "@kodkafa/eslint-config": "^1.0.4",

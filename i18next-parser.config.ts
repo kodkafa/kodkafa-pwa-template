@@ -14,7 +14,7 @@ export default {
   // defaultNamespace: 'common',
   // Default namespace used in your i18next config
 
-  defaultValue: (_: any, __: any, key: string, value: string) => value || key,
+  defaultValue: (_: never, __: never, key: string, value: string) => value || key,
   // Default value to give to keys with no value
   // You may also specify a function accepting the locale, namespace, key, and value as arguments
 

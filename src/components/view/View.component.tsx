@@ -1,8 +1,9 @@
 import { PropsWithChildren } from 'react';
 import { Loader } from '@/components';
-import Error from '@/layout/components/Error.component';
+import ErrorComponent from '@/layout/components/Error.component';
 import { isRouteErrorResponse, useRouteError } from 'react-router-dom';
 import CustomError from '@/types/CustomError.model';
+import { useTranslation } from 'react-i18next';
 
 interface Props extends PropsWithChildren {
   isLoading?: boolean;
@@ -11,6 +12,7 @@ interface Props extends PropsWithChildren {
 }
 
 export function View({ isLoading, isError, error, children }: Props) {
+  const { t } = useTranslation();
   if (isLoading)
     return (
       <div className='h-full w-full flex flex-col items-center justify-center'>
@@ -21,8 +23,8 @@ export function View({ isLoading, isError, error, children }: Props) {
     const customError = new CustomError(error).toObject();
     return (
       <div className='h-full w-full flex flex-col items-center justify-center'>
-        <p>Data loading error!</p>
-        <Error expended={true} {...customError} />
+        <p>{t('Data loading error!')}</p>
+        <ErrorComponent expended={true} {...customError} />
       </div>
     );
   }
@@ -31,8 +33,7 @@ export function View({ isLoading, isError, error, children }: Props) {
 }
 
 export function ErrorBoundary() {
-  const error = useRouteError() as any;
-  console.log({ error });
+  const error = useRouteError() as Error;
   return (
     <div className='h-full w-full flex flex-col items-center justify-center'>
       {isRouteErrorResponse(error) ? (
@@ -40,10 +41,10 @@ export function ErrorBoundary() {
           {error?.status} {error?.statusText}
         </h1>
       ) : (
-        <Error
+        <ErrorComponent
           expended={true}
           status={0}
-          message={error?.message || error}
+          message={error?.message || String(error)}
           name={error.name}
           stack={error.stack}
         />

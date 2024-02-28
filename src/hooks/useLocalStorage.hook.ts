@@ -5,7 +5,10 @@ interface Options<T> {
   defaultValue?: T | null;
 }
 
-export const useLocalStorage = <T = any>(key: string, opts: Options<T>) => {
+export const useLocalStorage = <T = object | string | number | boolean | null>(
+  key: string,
+  opts: Options<T>,
+) => {
   const { defaultValue } = opts;
 
   const [storedValue, setStoredValue] = useState<T>(() => {

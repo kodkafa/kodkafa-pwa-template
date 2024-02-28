@@ -30,7 +30,7 @@ jobs:
         run: pnpm i && pnpm cypress install
 
       - name: Validate
-        run: pnpm run-p lint test:ci test:e2e:ci
+        run: pnpm run --parallel /^test:ci/
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
