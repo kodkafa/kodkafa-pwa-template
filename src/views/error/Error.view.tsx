@@ -8,7 +8,7 @@ type Props = {
   stack?: object;
 };
 export function ErrorView(props: Props) {
-  const error: Props = useRouteError() || props;
+  const error: Props | Error = useRouteError() || props;
   const { t } = useTranslation();
   console.log({ error });
 
