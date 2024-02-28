@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 import CookieBanner from '@/layout/components/CookieBanner.component';
 import Version from '@/layout/components/Version.component';
 import ReloadPrompt from '@/layout/components/ReloadPrompt.component.tsx';
-// import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from '@vercel/analytics/react';
 import { LoadingFallback } from '@/layout/Loading.fallback.tsx';
 
 export function SystemLayout() {
@@ -14,7 +14,7 @@ export function SystemLayout() {
         <CookieBanner />
         <Version />
         <ReloadPrompt />
-        {/*<Analytics />*/}
+        <Analytics />
       </Suspense>
     </div>
   );
