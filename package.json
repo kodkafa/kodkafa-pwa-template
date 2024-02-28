@@ -12,7 +12,7 @@
     "preview": "vite preview",
     "localize": "npx i18next -c i18next-parser.config.ts",
     "pwa:assets": "pwa-assets-generator --preset minimal-2023 public/favicon.svg",
-    "pwa:ss": "pnpm preview:test 'cypress run -c cypress-ss.config.ts -s cypress/e2e/screenshot.cy.ts' && mv cypress/screenshots/screenshot*/*.png public/",
+    "pwa:ss": "pnpm preview:test 'cypress run -C cypress-ss.config.ts -s cypress/e2e/screenshot.cy.ts' && mv cypress/screenshots/screenshot*/*.png public/",
     "preview:test": "start-server-and-test preview http://localhost:4173",
     "test": "vitest",
     "test:ci": "vitest run",
