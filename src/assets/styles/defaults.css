@@ -1,7 +1,36 @@
+html,
+body,
+#root {
+  @apply h-full;
+}
+
+hr {
+  @apply dark:border-zinc-950;
+}
+
 body {
-  @apply bg-zinc-100 text-zinc-800 dark:bg-zinc-900 dark:text-amber-50;
+  @apply font-body bg-zinc-100 text-zinc-800 dark:bg-zinc-900 dark:text-amber-50;
+}
+
+a {
+  @apply dark:text-amber-50;
 }
 
 a.active {
-  @apply text-red-500;
+  @apply text-amber-500;
+}
+
+.layout-header {
+  @apply z-40 h-16 flex flex-wrap sm:justify-center sm:flex-nowrap w-full
+  border-b
+  bg-white/50 border-white/10
+  dark:bg-black/40 dark:border-black/80
+  shadow-sm text-sm py-4
+}
+
+.layout-footer {
+  @apply sm:h-14 flex items-center sm:justify-center w-full p-4 sm:px-6 lg:px-8 mx-auto
+    border-t
+  bg-black/5 border-white/10
+  dark:bg-black/10 dark:border-black/10
 }

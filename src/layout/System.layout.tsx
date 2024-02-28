@@ -1,7 +1,8 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import Version from '@/layout/components/Version.component';
 import CookieBanner from '@/layout/components/CookieBanner.component';
+import Version from '@/layout/components/Version.component';
+import ReloadPrompt from '@/layout/components/ReloadPrompt.component.tsx';
 import { Analytics } from '@vercel/analytics/react';
 import { LoadingFallback } from '@/layout/Loading.fallback.tsx';
 
@@ -12,6 +13,7 @@ export function SystemLayout() {
         <Outlet />
         <CookieBanner />
         <Version />
+        <ReloadPrompt />
         <Analytics />
       </Suspense>
     </div>

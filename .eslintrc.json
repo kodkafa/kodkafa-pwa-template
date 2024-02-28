@@ -1,5 +1,8 @@
 {
-  "extends": "@kodkafa/eslint-config/react"
+  "extends": "@kodkafa/eslint-config/react",
+  "plugins": [
+    "cypress"
+  ]
 }
 // module.exports = {
 //   root: true,

@@ -17,23 +17,23 @@ export default function CookieBanner() {
           role='alertdialog'
           aria-describedby='policy-text'
           aria-modal='true'
-          aria-label={t('Cookies and use of our website2')}
+          aria-label={t('Cookies and use of our website')}
           className='flex items-center justify-center'
         >
           <div className='xl:container md:p-6 p-4'>
-            <div className='flex items-stretch flex-col sm:flex-row'>
+            <div className='flex items-stretch'>
               <div className='grow'>
                 <h2 className='text-lg font-semibold mb-2 dark:text-black'>
                   {t('Cookies and use of our website')}
                 </h2>
                 <div className='text-stone-600'>
                   {t(
-                    'We may use your information – collected through cookies and similar technologies - to improve your experience on our site, analyze how you use it and assist in our marketing efforts. You can always update your preferences via the Cookie Settings page. We will handle your personal information in line with our',
+                    'We may use your information – collected through cookies and similar technologies - to improve your experience on our site, analyze how you use it and assist in our marketing efforts. We will handle your personal information in line with our',
                   )}
                   <Link
                     to='/privacy'
                     aria-label={t('More information about your privacy')}
-                    className='font-semibold mx-2'
+                    className='font-semibold mx-2 dark:text-black'
                   >
                     {t('Privacy Policy')}
                   </Link>
@@ -41,14 +41,14 @@ export default function CookieBanner() {
                   <Link
                     to='/cookies'
                     aria-label={t('More information about our cookie policy')}
-                    className='font-semibold mx-2'
+                    className='font-semibold mx-2 dark:text-black'
                   >
                     {t('Cookie policy')}
                   </Link>
                 </div>
               </div>
-              <div className='flex items-center sm:pl-4 justify-end'>
-                <button onClick={handleAccept} className='button button-blue'>
+              <div className='flex items-center pl-4'>
+                <button id='cookie-accept' onClick={handleAccept} className='button button-blue'>
                   {t('Accept')}
                 </button>
               </div>

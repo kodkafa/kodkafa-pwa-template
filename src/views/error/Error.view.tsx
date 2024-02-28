@@ -15,12 +15,17 @@ export function ErrorView(props: Props) {
   if (isRouteErrorResponse(error) || [401, 404, 418, 503].includes(Number(error?.status))) {
     if (error?.status === 404) {
       return (
-        <div className='h-full flex items-center justify-center'>
+        <div className='h-full w-full flex items-center justify-center'>
           <div className='text-center'>
-            <div className='mb-4 text-5xl'>404</div>
+            <div id='error-code' className='mb-4 text-5xl'>
+              {error?.status}
+            </div>
             <div className='mb-4 text-3xl'>{t('Page not found!')}</div>
-            <div className='text-blue-500'>
-              <Link to='/'>{t('Go back to home')}</Link>
+            <div className=''>
+              <Link to='/' className='button'>
+                <i className='icon-left-open' />
+                {t('Go back to home')}
+              </Link>
             </div>
           </div>
         </div>
@@ -31,10 +36,15 @@ export function ErrorView(props: Props) {
       return (
         <div className='h-full flex items-center justify-center'>
           <div className='text-center'>
-            <div className='mb-4 text-5xl'>401</div>
+            <div id='error-code' className='mb-4 text-5xl'>
+              {error?.status}
+            </div>
             <div className='mb-4 text-3xl'>{t('You aren`t authorized to see this')}</div>
-            <div className='text-blue-500'>
-              <Link to='/'>{t('Go back to home')}</Link>
+            <div className=''>
+              <Link to='/' className='button'>
+                <i className='icon-left-open' />
+                {t('Go back to home')}
+              </Link>
             </div>
           </div>
         </div>
@@ -45,10 +55,15 @@ export function ErrorView(props: Props) {
       return (
         <div className='h-full flex items-center justify-center'>
           <div className='text-center'>
-            <div className='mb-4 text-5xl'>503</div>
+            <div id='error-code' className='mb-4 text-5xl'>
+              {error?.status}
+            </div>
             <div className='mb-4 text-3xl'>{t('Looks like our API is down')}</div>
-            <div className='text-blue-500'>
-              <Link to='/'>{t('Go back to home')}</Link>
+            <div className=''>
+              <Link to='/' className='button'>
+                <i className='icon-left-open' />
+                {t('Go back to home')}
+              </Link>
             </div>
           </div>
         </div>
@@ -59,10 +74,15 @@ export function ErrorView(props: Props) {
       return (
         <div className='h-full flex items-center justify-center'>
           <div className='text-center'>
-            <div className='mb-4 text-5xl'>🫖</div>
-            <div className='mb-4 text-3xl'>{t('Tea time!')}</div>
-            <div className='text-blue-500'>
-              <Link to='/'>{t('Go back to home')}</Link>
+            <div id='error-code' className='mb-4 text-5xl'>
+              {error?.status}
+            </div>
+            <div className='mb-4 text-3xl'>{t('Tea time!')} 🫖</div>
+            <div className=''>
+              <Link to='/' className='button'>
+                <i className='icon-left-open' />
+                {t('Go back to home')}
+              </Link>
             </div>
           </div>
         </div>
