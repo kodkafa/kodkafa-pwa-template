@@ -36,17 +36,18 @@ export default function Reload() {
             )}
           </div>
           <div>
-            {needRefresh && (
+            {needRefresh ? (
               <button
                 className='ml-4 button button-sm button-red'
                 onClick={() => updateServiceWorker(true)}
               >
                 {t('Reload')}
               </button>
+            ) : (
+              <button className='ml-4 button button-sm button-red' onClick={() => close()}>
+                {t('Close')}
+              </button>
             )}
-            <button className='ml-4 button button-sm button-red' onClick={() => close()}>
-              {t('Close')}
-            </button>
           </div>
         </div>
       )}
